@@ -14,6 +14,8 @@
 		FB15DDDD2CCFDF5800B5B5CD /* GestionAlmacenProducto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB15DDDB2CCFDF5800B5B5CD /* GestionAlmacenProducto.xcdatamodeld */; };
 		FB15DDDF2CCFDF5A00B5B5CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB15DDDE2CCFDF5A00B5B5CD /* Assets.xcassets */; };
 		FB15DDE22CCFDF5A00B5B5CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB15DDE02CCFDF5A00B5B5CD /* LaunchScreen.storyboard */; };
+		FB15DDEA2CCFE17800B5B5CD /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB15DDE92CCFE17800B5B5CD /* AddViewController.swift */; };
+		FB15DDEC2CCFEE2B00B5B5CD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB15DDEB2CCFEE2B00B5B5CD /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		FB15DDDE2CCFDF5A00B5B5CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB15DDE12CCFDF5A00B5B5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB15DDE32CCFDF5A00B5B5CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB15DDE92CCFE17800B5B5CD /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		FB15DDEB2CCFEE2B00B5B5CD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,8 @@
 				FB15DDD22CCFDF5800B5B5CD /* AppDelegate.swift */,
 				FB15DDD42CCFDF5800B5B5CD /* SceneDelegate.swift */,
 				FB15DDD62CCFDF5800B5B5CD /* ViewController.swift */,
+				FB15DDE92CCFE17800B5B5CD /* AddViewController.swift */,
+				FB15DDEB2CCFEE2B00B5B5CD /* DetailViewController.swift */,
 				FB15DDD82CCFDF5800B5B5CD /* Main.storyboard */,
 				FB15DDDE2CCFDF5A00B5B5CD /* Assets.xcassets */,
 				FB15DDE02CCFDF5A00B5B5CD /* LaunchScreen.storyboard */,
@@ -141,8 +147,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB15DDEA2CCFE17800B5B5CD /* AddViewController.swift in Sources */,
 				FB15DDD72CCFDF5800B5B5CD /* ViewController.swift in Sources */,
 				FB15DDDD2CCFDF5800B5B5CD /* GestionAlmacenProducto.xcdatamodeld in Sources */,
+				FB15DDEC2CCFEE2B00B5B5CD /* DetailViewController.swift in Sources */,
 				FB15DDD32CCFDF5800B5B5CD /* AppDelegate.swift in Sources */,
 				FB15DDD52CCFDF5800B5B5CD /* SceneDelegate.swift in Sources */,
 			);
