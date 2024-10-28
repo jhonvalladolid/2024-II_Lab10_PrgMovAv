@@ -14,21 +14,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var txtCategoria: UILabel!
     @IBOutlet weak var txtCantidad: UILabel!
     @IBOutlet weak var txtPrecio: UILabel!
+    
+    var producto: Producto?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let producto = producto {
+            txtCodigo.text = producto.codigo ?? "Sin Código"
+            txtNombre.text = producto.nombre ?? "Sin Nombre"
+            txtCategoria.text = producto.categoria ?? "Sin Categoria"
+            txtCantidad.text = String(producto.cantidad)
+            txtPrecio.text = String(producto.precio)
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
