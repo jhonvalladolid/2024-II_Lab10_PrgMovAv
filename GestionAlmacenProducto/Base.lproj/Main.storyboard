@@ -16,25 +16,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="R7s-a5-xme">
-                                <rect key="frame" x="16" y="137" width="277" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Qfn-98-v4H"/>
-                                </connections>
-                            </searchBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="gcZ-R7-hdb">
+                                <rect key="frame" x="16" y="137" width="361" height="56"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="R7s-a5-xme">
+                                        <rect key="frame" x="0.0" y="0.0" width="249.66666666666666" height="56"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Qfn-98-v4H"/>
+                                        </connections>
+                                    </searchBar>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmo-lT-3KP">
+                                        <rect key="frame" x="258.66666666666669" y="0.0" width="102.33333333333331" height="56"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="line.3.horizontal.decrease.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="btnFiltrarTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l6o-5P-M7g"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wuX-ym-Lun">
                                 <rect key="frame" x="0.0" y="193" width="393" height="625"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="625" id="yry-bY-7qs"/>
+                                </constraints>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tmo-lT-3KP">
-                                <rect key="frame" x="302" y="139" width="75" height="54"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="btnFiltrarTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l6o-5P-M7g"/>
-                                </connections>
-                            </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3Q-4s-Hk6">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                             </pickerView>
@@ -42,20 +50,16 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="wuX-ym-Lun" firstAttribute="top" secondItem="gcZ-R7-hdb" secondAttribute="bottom" id="5QY-PZ-jLg"/>
                             <constraint firstItem="W3Q-4s-Hk6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9Ig-WX-daG"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="W3Q-4s-Hk6" secondAttribute="bottom" id="B0e-P9-mz9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="wuX-ym-Lun" secondAttribute="bottom" id="HsT-bi-ekS"/>
-                            <constraint firstItem="wuX-ym-Lun" firstAttribute="top" secondItem="R7s-a5-xme" secondAttribute="bottom" id="JfN-C7-jMX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R7s-a5-xme" secondAttribute="trailing" constant="100" id="LUI-e2-2Uk"/>
+                            <constraint firstItem="wuX-ym-Lun" firstAttribute="centerX" secondItem="gcZ-R7-hdb" secondAttribute="centerX" id="KZZ-xd-ULc"/>
+                            <constraint firstItem="gcZ-R7-hdb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="LNc-75-H8F"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W3Q-4s-Hk6" secondAttribute="trailing" id="MXD-Vj-Ml6"/>
-                            <constraint firstItem="Tmo-lT-3KP" firstAttribute="centerY" secondItem="R7s-a5-xme" secondAttribute="centerY" id="Q2z-JJ-wV5"/>
-                            <constraint firstItem="R7s-a5-xme" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Rky-BW-aWU"/>
                             <constraint firstItem="wuX-ym-Lun" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SK5-8x-SLu"/>
-                            <constraint firstItem="R7s-a5-xme" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="XdS-5d-Yvt"/>
                             <constraint firstItem="W3Q-4s-Hk6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="cZ0-1o-PFW"/>
-                            <constraint firstItem="R7s-a5-xme" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="g1t-9d-ilJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wuX-ym-Lun" secondAttribute="trailing" id="wg5-6J-FSo"/>
-                            <constraint firstItem="Tmo-lT-3KP" firstAttribute="leading" secondItem="R7s-a5-xme" secondAttribute="trailing" constant="59" id="xWb-nY-zOY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Lista" prompt="Productos" id="YfJ-40-HmY">
@@ -334,6 +338,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

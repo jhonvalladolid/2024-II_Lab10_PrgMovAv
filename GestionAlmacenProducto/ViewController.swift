@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         pickerCategoria.dataSource = self
         pickerCategoria.isHidden = true
         obtenerProductos()
-        obtenerCategorias() 
+        obtenerCategorias()
     }
 
     override func viewWillAppear(_ animated: Bool) {
