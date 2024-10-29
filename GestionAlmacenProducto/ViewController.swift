@@ -93,6 +93,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         buscarProducto(texto: searchText)
         tableView.reloadData()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productoSeleccionado = productos[indexPath.row]
+        performSegue(withIdentifier: "SegueDetail", sender: productoSeleccionado)
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueAgregarEditar" {
@@ -100,6 +105,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if let productoAEditar = sender as? Producto {
                     addVC.productoAEditar = productoAEditar
                 }
+            }
+        } else if segue.identifier == "SegueDetail" {
+            if let detailVC = segue.destination as? DetailViewController,
+               let indexPath = tableView.indexPathForSelectedRow {
+                detailVC.producto = productos[indexPath.row]
             }
         }
     }
