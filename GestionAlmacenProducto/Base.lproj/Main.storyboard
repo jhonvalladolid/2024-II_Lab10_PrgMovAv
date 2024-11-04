@@ -8,6 +8,39 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="gn8-Ji-TJL">
+            <objects>
+                <viewController id="VN1-d2-1FW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iVw-N9-1ar">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="98S-qG-qxr">
+                                <rect key="frame" x="146" y="273" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="mwf-Mk-qdD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRx-4s-LPi">
+                                <rect key="frame" x="146" y="485" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SMg-rD-o9l"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1pU-yO-Fus"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="adE-kh-AbT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1989" y="6"/>
+        </scene>
         <!--Lista-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -90,7 +123,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1979.3893129770991" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="2790" y="-1"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="hKC-6r-pnX">
@@ -228,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfl-fL-NS5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2857" y="290"/>
+            <point key="canvasLocation" x="3666" y="315"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="3I9-Ce-BRQ">
@@ -340,7 +373,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xlc-3t-LjI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2872.5190839694656" y="-396.47887323943667"/>
+            <point key="canvasLocation" x="3683" y="-370"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="k8e-Qv-sby">
@@ -394,7 +427,7 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Iniciar Sesion"/>
                                         <connections>
                                             <action selector="btnLogin:" destination="k2A-z3-1b3" eventType="touchUpInside" id="CIi-gS-b8X"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="listaSegue" id="2Kc-P2-MGX"/>
+                                            <segue destination="VN1-d2-1FW" kind="show" id="4ZW-z7-9SE"/>
                                         </connections>
                                     </button>
                                 </subviews>
