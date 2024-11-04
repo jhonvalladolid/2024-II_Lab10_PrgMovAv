@@ -18,6 +18,11 @@
 		FB15DDEC2CCFEE2B00B5B5CD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB15DDEB2CCFEE2B00B5B5CD /* DetailViewController.swift */; };
 		FB63FBA82CD275CC00304CAF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB63FBA72CD275CC00304CAF /* LoginViewController.swift */; };
 		FB63FBAA2CD275DA00304CAF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB63FBA92CD275DA00304CAF /* RegisterViewController.swift */; };
+		FB63FBAE2CD92AAB00304CAF /* CategoriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB63FBAD2CD92AAB00304CAF /* CategoriaViewController.swift */; };
+		FB63FBB02CD931CB00304CAF /* AgregarCategoriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB63FBAF2CD931CB00304CAF /* AgregarCategoriaViewController.swift */; };
+		FB63FBB22CD93D0300304CAF /* carrito.png in Resources */ = {isa = PBXBuildFile; fileRef = FB63FBB12CD93D0300304CAF /* carrito.png */; };
+		FB63FBB42CD93D8300304CAF /* category.png in Resources */ = {isa = PBXBuildFile; fileRef = FB63FBB32CD93D8300304CAF /* category.png */; };
+		FB63FBB62CD93FA800304CAF /* report.png in Resources */ = {isa = PBXBuildFile; fileRef = FB63FBB52CD93FA700304CAF /* report.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		FB15DDEB2CCFEE2B00B5B5CD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FB63FBA72CD275CC00304CAF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FB63FBA92CD275DA00304CAF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		FB63FBAD2CD92AAB00304CAF /* CategoriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaViewController.swift; sourceTree = "<group>"; };
+		FB63FBAF2CD931CB00304CAF /* AgregarCategoriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgregarCategoriaViewController.swift; sourceTree = "<group>"; };
+		FB63FBB12CD93D0300304CAF /* carrito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carrito.png; sourceTree = "<group>"; };
+		FB63FBB32CD93D8300304CAF /* category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = category.png; sourceTree = "<group>"; };
+		FB63FBB52CD93FA700304CAF /* report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = report.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,11 +83,16 @@
 				FB15DDEB2CCFEE2B00B5B5CD /* DetailViewController.swift */,
 				FB63FBA72CD275CC00304CAF /* LoginViewController.swift */,
 				FB63FBA92CD275DA00304CAF /* RegisterViewController.swift */,
+				FB63FBAD2CD92AAB00304CAF /* CategoriaViewController.swift */,
+				FB63FBAF2CD931CB00304CAF /* AgregarCategoriaViewController.swift */,
 				FB15DDD82CCFDF5800B5B5CD /* Main.storyboard */,
 				FB15DDDE2CCFDF5A00B5B5CD /* Assets.xcassets */,
 				FB15DDE02CCFDF5A00B5B5CD /* LaunchScreen.storyboard */,
 				FB15DDE32CCFDF5A00B5B5CD /* Info.plist */,
 				FB15DDDB2CCFDF5800B5B5CD /* GestionAlmacenProducto.xcdatamodeld */,
+				FB63FBB12CD93D0300304CAF /* carrito.png */,
+				FB63FBB32CD93D8300304CAF /* category.png */,
+				FB63FBB52CD93FA700304CAF /* report.png */,
 			);
 			path = GestionAlmacenProducto;
 			sourceTree = "<group>";
@@ -142,7 +157,10 @@
 			files = (
 				FB15DDE22CCFDF5A00B5B5CD /* LaunchScreen.storyboard in Resources */,
 				FB15DDDF2CCFDF5A00B5B5CD /* Assets.xcassets in Resources */,
+				FB63FBB22CD93D0300304CAF /* carrito.png in Resources */,
+				FB63FBB42CD93D8300304CAF /* category.png in Resources */,
 				FB15DDDA2CCFDF5800B5B5CD /* Main.storyboard in Resources */,
+				FB63FBB62CD93FA800304CAF /* report.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,8 +175,10 @@
 				FB15DDEA2CCFE17800B5B5CD /* AddViewController.swift in Sources */,
 				FB15DDD72CCFDF5800B5B5CD /* ViewController.swift in Sources */,
 				FB63FBAA2CD275DA00304CAF /* RegisterViewController.swift in Sources */,
+				FB63FBB02CD931CB00304CAF /* AgregarCategoriaViewController.swift in Sources */,
 				FB15DDDD2CCFDF5800B5B5CD /* GestionAlmacenProducto.xcdatamodeld in Sources */,
 				FB15DDEC2CCFEE2B00B5B5CD /* DetailViewController.swift in Sources */,
+				FB63FBAE2CD92AAB00304CAF /* CategoriaViewController.swift in Sources */,
 				FB15DDD32CCFDF5800B5B5CD /* AppDelegate.swift in Sources */,
 				FB15DDD52CCFDF5800B5B5CD /* SceneDelegate.swift in Sources */,
 			);
