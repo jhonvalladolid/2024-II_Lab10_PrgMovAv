@@ -108,9 +108,33 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
         let producto = productos[indexPath.row]
-        cell.textLabel?.text = "\(producto.nombre ?? "Sin Nombre") - \(producto.categoria ?? "Sin Categoria")"
+
+        // Configurar el texto de la celda
+        cell.textLabel?.text = producto.nombre ?? "Sin Nombre"
+        cell.detailTextLabel?.text = producto.categoria ?? "Sin Categoría"
+
+        // Cargar la imagen desde imageData en Core Data
+        if let imageData = producto.imageData {
+            cell.imageView?.image = UIImage(data: imageData)
+        } else {
+            cell.imageView?.image = UIImage(named: "placeholder") // Imagen por defecto si no hay imagen
+        }
+
+        // Ajuste del tamaño de la imagen
+        cell.imageView?.contentMode = .scaleAspectFill
+        cell.imageView?.layer.cornerRadius = 8
+        cell.imageView?.clipsToBounds = true
+
+        // Configura el tamaño de la imagen en la celda
+        let itemSize = CGSize(width: 50, height: 50)
+        UIGraphicsBeginImageContextWithOptions(itemSize, false, UIScreen.main.scale)
+        let imageRect = CGRect(origin: .zero, size: itemSize)
+        cell.imageView?.image?.draw(in: imageRect)
+        cell.imageView?.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
         return cell
     }
 

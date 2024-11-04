@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
             return
         }
 
-        if usuario == "admin" && contrasena == "Pollito123" {
+        if usuario == "admin" && contrasena == "Pollito123" || usuario == "jhon" && contrasena == "1234" {
             // Las credenciales son correctas se realizara la transicion
         } else {
             showAlert(message: "Usuario o contraseña incorrectos.")

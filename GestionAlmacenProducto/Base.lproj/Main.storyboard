@@ -358,12 +358,17 @@
                                     <action selector="btnGuardar:" destination="nEZ-Lv-Dow" eventType="touchUpInside" id="R4H-Hp-5wf"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nXv-KE-Mvv">
+                                <rect key="frame" x="76" y="579" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aNy-U2-dzg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ash-Hg-AlN"/>
                     <connections>
+                        <outlet property="productoImageView" destination="nXv-KE-Mvv" id="h9j-4v-gaq"/>
                         <outlet property="txtCant" destination="ISP-tj-BAh" id="Tt0-xQ-yTA"/>
                         <outlet property="txtCat" destination="rJn-PL-5cV" id="zUz-wZ-7sL"/>
                         <outlet property="txtCod" destination="VbK-q1-4oz" id="nEg-71-sTc"/>
