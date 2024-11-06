@@ -14,20 +14,33 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var txtCategoria: UILabel!
     @IBOutlet weak var txtCantidad: UILabel!
     @IBOutlet weak var txtPrecio: UILabel!
+    @IBOutlet weak var productoImageView: UIImageView!
     
     var producto: Producto?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Configuración minimalista para la vista
+        view.backgroundColor = .systemBackground
+        productoImageView.contentMode = .scaleAspectFill
+        productoImageView.layer.cornerRadius = 10
+        productoImageView.clipsToBounds = true
 
+        // Mostrar detalles del producto
         if let producto = producto {
             txtCodigo.text = producto.codigo ?? "Sin Código"
             txtNombre.text = producto.nombre ?? "Sin Nombre"
-            txtCategoria.text = producto.categorias?.nombre
+            txtCategoria.text = producto.categorias?.nombre ?? "Sin Categoría"
+            txtCantidad.text = "Cantidad: \(producto.cantidad)"
+            txtPrecio.text = "Precio: $\(producto.precio)"
             
-            ?? "Sin Categoria"
-            txtCantidad.text = String(producto.cantidad)
-            txtPrecio.text = String(producto.precio)
+            // Mostrar imagen del producto
+            if let imageData = producto.imageData {
+                productoImageView.image = UIImage(data: imageData)
+            } else {
+                productoImageView.image = UIImage(named: "placeholder") // Imagen por defecto
+            }
         }
     }
 }
