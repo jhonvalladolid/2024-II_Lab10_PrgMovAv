@@ -8,7 +8,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupGradientBackground()
         // Do any additional setup after loading the view.
     }
 
@@ -32,16 +31,5 @@ class LoginViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    private func setupGradientBackground() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = gradientView.bounds
-        gradientLayer.colors = [
-            UIColor.systemCyan.cgColor,
-            UIColor.systemGreen.cgColor
-        ]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 2)
-        gradientView.layer.insertSublayer(gradientLayer, at: 0)
-    }
 
 }

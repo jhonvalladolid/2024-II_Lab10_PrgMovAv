@@ -490,15 +490,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhN-86-4wK">
-                                <rect key="frame" x="152" y="148" width="88" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Puv-n5-quw">
-                                <rect key="frame" x="60" y="206" width="273" height="321"/>
+                                <rect key="frame" x="60" y="317" width="273" height="321"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ingresa tu usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hA-Am-kWf">
@@ -538,8 +531,19 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.3979311342592593" green="0.3979311342592593" blue="0.3979311342592593" alpha="0.19178389350453173" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.3979311342592593" green="0.3979311342592593" blue="0.3979311342592593" alpha="0.050580626888217524" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="carritoCompras.png" translatesAutoresizingMaskIntoConstraints="NO" id="11w-QC-WhA">
+                                <rect key="frame" x="60" y="103" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="InventarioPlus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhN-86-4wK">
+                                <rect key="frame" x="83" y="239" width="227" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wrA-Y6-AL0"/>
                         <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
@@ -741,6 +745,7 @@
     </scenes>
     <resources>
         <image name="carrito.png" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="carritoCompras.png" width="384" height="384"/>
         <image name="category.png" width="512" height="512"/>
         <image name="report.png" width="512" height="512"/>
         <systemColor name="secondarySystemGroupedBackgroundColor">
