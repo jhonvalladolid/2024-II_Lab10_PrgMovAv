@@ -26,6 +26,7 @@
 		FB63FBB22CD93D0300304CAF /* carrito.png in Resources */ = {isa = PBXBuildFile; fileRef = FB63FBB12CD93D0300304CAF /* carrito.png */; };
 		FB63FBB42CD93D8300304CAF /* category.png in Resources */ = {isa = PBXBuildFile; fileRef = FB63FBB32CD93D8300304CAF /* category.png */; };
 		FB63FBB62CD93FA800304CAF /* report.png in Resources */ = {isa = PBXBuildFile; fileRef = FB63FBB52CD93FA700304CAF /* report.png */; };
+		FBC846C52CDBC36100CFB1B0 /* imgFoto.png in Resources */ = {isa = PBXBuildFile; fileRef = FBC846C42CDBC36100CFB1B0 /* imgFoto.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		FB63FBB12CD93D0300304CAF /* carrito.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carrito.png; sourceTree = "<group>"; };
 		FB63FBB32CD93D8300304CAF /* category.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = category.png; sourceTree = "<group>"; };
 		FB63FBB52CD93FA700304CAF /* report.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = report.png; sourceTree = "<group>"; };
+		FBC846C42CDBC36100CFB1B0 /* imgFoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imgFoto.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				FB63FBB32CD93D8300304CAF /* category.png */,
 				FB63FBB52CD93FA700304CAF /* report.png */,
 				FB4B3F332CDBBD4000F2CB13 /* carritoCompras.png */,
+				FBC846C42CDBC36100CFB1B0 /* imgFoto.png */,
 			);
 			path = GestionAlmacenProducto;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				FB4B3F342CDBBD4000F2CB13 /* carritoCompras.png in Resources */,
 				FB15DDE22CCFDF5A00B5B5CD /* LaunchScreen.storyboard in Resources */,
 				FB15DDDF2CCFDF5A00B5B5CD /* Assets.xcassets in Resources */,
+				FBC846C52CDBC36100CFB1B0 /* imgFoto.png in Resources */,
 				FB63FBB22CD93D0300304CAF /* carrito.png in Resources */,
 				FB63FBB42CD93D8300304CAF /* category.png in Resources */,
 				FB15DDDA2CCFDF5800B5B5CD /* Main.storyboard in Resources */,
