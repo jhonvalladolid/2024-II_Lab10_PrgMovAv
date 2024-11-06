@@ -57,9 +57,10 @@ class CategoriaViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         editAction.backgroundColor = .blue
 
-        // Acción de eliminar
+        // Acción de eliminar con confirmación
         let deleteAction = UIContextualAction(style: .destructive, title: "Eliminar") { (action, view, completionHandler) in
-            self.deleteCategoria(at: indexPath)
+            // Verificar si la categoría tiene productos asociados antes de eliminar
+            self.verifyAndDeleteCategoria(at: indexPath)
             completionHandler(true)
         }
 
@@ -67,6 +68,41 @@ class CategoriaViewController: UIViewController, UITableViewDelegate, UITableVie
         return configuration
     }
 
+    // Función para verificar si la categoría tiene productos asociados antes de eliminar
+    func verifyAndDeleteCategoria(at indexPath: IndexPath) {
+        let categoria = categorias[indexPath.row]
+        
+        // Verificar si la categoría tiene productos asociados
+        if let productos = categoria.productos?.allObjects as? [Producto], productos.count > 0 {
+            // Si tiene productos, mostrar alerta para que el usuario elimine los productos primero
+            let alert = UIAlertController(title: "Categoría con productos", message: "Esta categoría tiene productos asociados. Primero elimine los productos antes de poder eliminar la categoría.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        } else {
+            // Si no tiene productos asociados, proceder a eliminar la categoría
+            self.showDeleteConfirmation(for: categoria, at: indexPath)
+        }
+    }
+
+    // Función para mostrar la alerta de confirmación antes de eliminar
+    func showDeleteConfirmation(for categoria: Categoria, at indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Confirmar eliminación", message: "¿Estás seguro de que deseas eliminar esta categoría?", preferredStyle: .alert)
+        
+        // Acción de confirmar
+        let confirmAction = UIAlertAction(title: "Eliminar", style: .destructive) { _ in
+            self.deleteCategoria(at: indexPath)
+        }
+        
+        // Acción de cancelar
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
+
+    // Función para eliminar la categoría
     func deleteCategoria(at indexPath: IndexPath) {
         let contexto = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         contexto.delete(categorias[indexPath.row])

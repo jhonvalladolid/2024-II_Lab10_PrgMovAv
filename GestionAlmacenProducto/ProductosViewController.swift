@@ -2,7 +2,7 @@ import UIKit
 import CoreData
 
 class ProductosViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet var productoTableView: UITableView! // Conexión del IBOutlet con el TableView
     @IBOutlet weak var txtCantidadTotalProductos: UITextField!
     @IBOutlet weak var txtTotalDineroProductos: UITextField!
@@ -62,7 +62,6 @@ class ProductosViewController: UIViewController, UITableViewDelegate, UITableVie
         for categoria in categorias {
             if let productos = productosPorCategoria[categoria] {
                 for producto in productos {
-                    // Aquí ya no necesitas "if let" ya que "precio" y "cantidad" son valores no opcionales
                     if producto.precio > 0, producto.cantidad > 0 {
                         cantidadTotal += Int(producto.cantidad)  // Sumamos las cantidades
                         totalDinero += Double(producto.cantidad) * producto.precio  // Sumamos el total (precio * cantidad)
@@ -82,46 +81,99 @@ class ProductosViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
-
-
+    // Acción del botón para generar el reporte en PDF
+    @IBAction func generarReportePDF(_ sender: Any) {
+        let pdfRenderer = UIGraphicsPDFRenderer(bounds: CGRect(x: 0, y: 0, width: 595.2, height: 841.8))  // A4 size
+        
+        let data = pdfRenderer.pdfData { (context) in
+            context.beginPage()
+            
+            // Título del reporte
+            let titleFont = UIFont.boldSystemFont(ofSize: 18)
+            let title = "Reporte de Productos"
+            title.draw(at: CGPoint(x: 50, y: 30), withAttributes: [.font: titleFont, .foregroundColor: UIColor.black])
+            
+            var yPosition = 60.0
+            
+            // Total de productos y dinero
+            let totalInfoFont = UIFont.systemFont(ofSize: 14)
+            let totalText = "Total de Productos: \(cantidadTotal)\nTotal Dinero: \(totalDinero)"
+            totalText.draw(at: CGPoint(x: 50, y: yPosition), withAttributes: [.font: totalInfoFont, .foregroundColor: UIColor.black])
+            yPosition += 50.0
+            
+            // Dibujar las barras de cada categoría
+            for categoria in categorias {
+                let productos = productosPorCategoria[categoria] ?? []
+                let totalProductosCategoria = productos.reduce(0) { $0 + Int($1.cantidad) }
+                let porcentajeCategoria = (Double(totalProductosCategoria) / Double(cantidadTotal)) * 100
+                
+                // Nombre de la categoría
+                let categoriaName = categoria.nombre ?? "Desconocida"
+                categoriaName.draw(at: CGPoint(x: 50, y: yPosition), withAttributes: [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.black])
+                yPosition += 20
+                
+                // Dibujo de la barra de porcentaje
+                let barWidth = porcentajeCategoria * 4.0  // Ajustar el tamaño de la barra
+                let barRect = CGRect(x: 50, y: yPosition, width: barWidth, height: 20)
+                UIColor.blue.setFill()
+                context.cgContext.fill(barRect)
+                yPosition += 30
+            }
+        }
+        
+        // Guardar el archivo PDF
+        let filePath = getDocumentsDirectory().appendingPathComponent("Reporte_Productos.pdf")
+        
+        do {
+            try data.write(to: filePath)
+            print("PDF guardado en: \(filePath)")
+            
+            // Navegar al ViewController que muestra el PDF
+            if let reporteVC = self.storyboard?.instantiateViewController(withIdentifier: "ReportePDFViewController") as? ReportePDFViewController {
+                reporteVC.mostrarPDF(pdfURL: filePath)
+                navigationController?.pushViewController(reporteVC, animated: true)
+            }
+        } catch {
+            print("Error al guardar el PDF: \(error)")
+        }
+    }
+    
+    // Función para obtener el directorio de documentos
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
     // MARK: - Métodos de TableView
 
-    // Número de secciones (una por cada categoría)
     func numberOfSections(in tableView: UITableView) -> Int {
         return categorias.count
     }
 
-    // Número de filas por sección (número de productos en esa categoría)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let categoria = categorias[section]
         return productosPorCategoria[categoria]?.count ?? 0
     }
 
-    // Título del encabezado de cada sección (nombre de la categoría)
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let categoria = categorias[section]
         return categoria.nombre
     }
 
-    // Configuración de cada celda para mostrar el nombre, precio, cantidad y total del producto
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let categoria = categorias[indexPath.section]
         let producto = productosPorCategoria[categoria]?[indexPath.row]
 
-        // Usamos una celda personalizada o estándar
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductoCell", for: indexPath)
-
-        // Configuramos el texto de la celda (nombre del producto)
+        
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         cell.textLabel?.text = producto?.nombre ?? "Sin Nombre"
         
-        // Crear el texto con saltos de línea para precio, cantidad y total
         var detalleTexto = ""
         
         if let precio = producto?.precio, let cantidad = producto?.cantidad {
             let total = Double(precio) * Double(cantidad)
             
-            // Formateamos el texto para mostrar precio, cantidad y total en varias líneas
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
             let precioFormateado = formatter.string(from: NSNumber(value: precio)) ?? "$\(precio)"
@@ -132,19 +184,15 @@ class ProductosViewController: UIViewController, UITableViewDelegate, UITableVie
             detalleTexto = "Sin datos de precio o cantidad"
         }
         
-        // Establecer el texto en el detailTextLabel o una nueva label
-        // Usamos detailTextLabel para mostrar varios detalles
-        cell.detailTextLabel?.numberOfLines = 0  // Permite varias líneas
+        cell.detailTextLabel?.numberOfLines = 0
         cell.detailTextLabel?.text = detalleTexto
         
-        // Cargar la imagen del producto si existe
         if let imageData = producto?.imageData, let image = UIImage(data: imageData) {
             cell.imageView?.image = image
         } else {
             cell.imageView?.image = UIImage(named: "placeholder")
         }
 
-        // Configuramos la imagen para que tenga un buen estilo
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.layer.cornerRadius = 8
         cell.imageView?.clipsToBounds = true
@@ -152,22 +200,16 @@ class ProductosViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
 
-    // Método para gestionar la selección de un producto
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Obtener el producto seleccionado
         let categoria = categorias[indexPath.section]
         let productoSeleccionado = productosPorCategoria[categoria]?[indexPath.row]
-        
-        // Realizamos el segue hacia el DetailViewController
         performSegue(withIdentifier: "SegueDetail", sender: productoSeleccionado)
     }
 
-    // Preparar para el segue de detalle (modal)
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SegueDetail" {
             if let detailVC = segue.destination as? DetailViewController {
                 if let productoSeleccionado = sender as? Producto {
-                    // Pasamos el producto seleccionado al controlador de detalles
                     detailVC.producto = productoSeleccionado
                 }
             }
