@@ -18,6 +18,7 @@
 		FB15DDEC2CCFEE2B00B5B5CD /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB15DDEB2CCFEE2B00B5B5CD /* DetailViewController.swift */; };
 		FB4B3F302CDBA81700F2CB13 /* ProductosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4B3F2F2CDBA81700F2CB13 /* ProductosViewController.swift */; };
 		FB4B3F322CDBB73D00F2CB13 /* ReportePDFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4B3F312CDBB73D00F2CB13 /* ReportePDFViewController.swift */; };
+		FB4B3F342CDBBD4000F2CB13 /* carritoCompras.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4B3F332CDBBD4000F2CB13 /* carritoCompras.png */; };
 		FB63FBA82CD275CC00304CAF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB63FBA72CD275CC00304CAF /* LoginViewController.swift */; };
 		FB63FBAA2CD275DA00304CAF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB63FBA92CD275DA00304CAF /* RegisterViewController.swift */; };
 		FB63FBAE2CD92AAB00304CAF /* CategoriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB63FBAD2CD92AAB00304CAF /* CategoriaViewController.swift */; };
@@ -41,6 +42,7 @@
 		FB15DDEB2CCFEE2B00B5B5CD /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FB4B3F2F2CDBA81700F2CB13 /* ProductosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductosViewController.swift; sourceTree = "<group>"; };
 		FB4B3F312CDBB73D00F2CB13 /* ReportePDFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportePDFViewController.swift; sourceTree = "<group>"; };
+		FB4B3F332CDBBD4000F2CB13 /* carritoCompras.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carritoCompras.png; sourceTree = "<group>"; };
 		FB63FBA72CD275CC00304CAF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FB63FBA92CD275DA00304CAF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		FB63FBAD2CD92AAB00304CAF /* CategoriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriaViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				FB63FBB12CD93D0300304CAF /* carrito.png */,
 				FB63FBB32CD93D8300304CAF /* category.png */,
 				FB63FBB52CD93FA700304CAF /* report.png */,
+				FB4B3F332CDBBD4000F2CB13 /* carritoCompras.png */,
 			);
 			path = GestionAlmacenProducto;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB4B3F342CDBBD4000F2CB13 /* carritoCompras.png in Resources */,
 				FB15DDE22CCFDF5A00B5B5CD /* LaunchScreen.storyboard in Resources */,
 				FB15DDDF2CCFDF5A00B5B5CD /* Assets.xcassets in Resources */,
 				FB63FBB22CD93D0300304CAF /* carrito.png in Resources */,

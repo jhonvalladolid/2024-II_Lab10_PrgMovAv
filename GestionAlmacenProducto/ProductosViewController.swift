@@ -81,69 +81,12 @@ class ProductosViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
 
-    // Acción del botón para generar el reporte en PDF
-    @IBAction func generarReportePDF(_ sender: Any) {
-        let pdfRenderer = UIGraphicsPDFRenderer(bounds: CGRect(x: 0, y: 0, width: 595.2, height: 841.8))  // A4 size
-        
-        let data = pdfRenderer.pdfData { (context) in
-            context.beginPage()
-            
-            // Título del reporte
-            let titleFont = UIFont.boldSystemFont(ofSize: 18)
-            let title = "Reporte de Productos"
-            title.draw(at: CGPoint(x: 50, y: 30), withAttributes: [.font: titleFont, .foregroundColor: UIColor.black])
-            
-            var yPosition = 60.0
-            
-            // Total de productos y dinero
-            let totalInfoFont = UIFont.systemFont(ofSize: 14)
-            let totalText = "Total de Productos: \(cantidadTotal)\nTotal Dinero: \(totalDinero)"
-            totalText.draw(at: CGPoint(x: 50, y: yPosition), withAttributes: [.font: totalInfoFont, .foregroundColor: UIColor.black])
-            yPosition += 50.0
-            
-            // Dibujar las barras de cada categoría
-            for categoria in categorias {
-                let productos = productosPorCategoria[categoria] ?? []
-                let totalProductosCategoria = productos.reduce(0) { $0 + Int($1.cantidad) }
-                let porcentajeCategoria = (Double(totalProductosCategoria) / Double(cantidadTotal)) * 100
-                
-                // Nombre de la categoría
-                let categoriaName = categoria.nombre ?? "Desconocida"
-                categoriaName.draw(at: CGPoint(x: 50, y: yPosition), withAttributes: [.font: UIFont.boldSystemFont(ofSize: 14), .foregroundColor: UIColor.black])
-                yPosition += 20
-                
-                // Dibujo de la barra de porcentaje
-                let barWidth = porcentajeCategoria * 4.0  // Ajustar el tamaño de la barra
-                let barRect = CGRect(x: 50, y: yPosition, width: barWidth, height: 20)
-                UIColor.blue.setFill()
-                context.cgContext.fill(barRect)
-                yPosition += 30
-            }
-        }
-        
-        // Guardar el archivo PDF
-        let filePath = getDocumentsDirectory().appendingPathComponent("Reporte_Productos.pdf")
-        
-        do {
-            try data.write(to: filePath)
-            print("PDF guardado en: \(filePath)")
-            
-            // Navegar al ViewController que muestra el PDF
-            if let reporteVC = self.storyboard?.instantiateViewController(withIdentifier: "ReportePDFViewController") as? ReportePDFViewController {
-                reporteVC.mostrarPDF(pdfURL: filePath)
-                navigationController?.pushViewController(reporteVC, animated: true)
-            }
-        } catch {
-            print("Error al guardar el PDF: \(error)")
-        }
-    }
-    
-    // Función para obtener el directorio de documentos
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
+    // Acción del botón para generar el reporte en PDF - ELIMINADA
+    // @IBAction func generarReportePDF(_ sender: Any) { ... }
+
+    // Función para obtener el directorio de documentos - ELIMINADA
+    // func getDocumentsDirectory() -> URL { ... }
+
     // MARK: - Métodos de TableView
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -200,19 +143,21 @@ class ProductosViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let categoria = categorias[indexPath.section]
-        let productoSeleccionado = productosPorCategoria[categoria]?[indexPath.row]
-        performSegue(withIdentifier: "SegueDetail", sender: productoSeleccionado)
-    }
+    // ELIMINAMOS LA FUNCIONALIDAD DE SELECCIONAR UNA CELDA
+    // func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //     let categoria = categorias[indexPath.section]
+    //     let productoSeleccionado = productosPorCategoria[categoria]?[indexPath.row]
+    //     performSegue(withIdentifier: "SegueDetail", sender: productoSeleccionado)
+    // }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SegueDetail" {
-            if let detailVC = segue.destination as? DetailViewController {
-                if let productoSeleccionado = sender as? Producto {
-                    detailVC.producto = productoSeleccionado
-                }
-            }
-        }
-    }
+    // ELIMINAMOS LA FUNCIONALIDAD PARA LA SEGUE DE LOS DETALLES
+    // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //     if segue.identifier == "SegueDetail" {
+    //         if let detailVC = segue.destination as? DetailViewController {
+    //             if let productoSeleccionado = sender as? Producto {
+    //                 detailVC.producto = productoSeleccionado
+    //             }
+    //         }
+    //     }
+    // }
 }
