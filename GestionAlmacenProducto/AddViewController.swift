@@ -109,7 +109,47 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         dismiss(animated: true, completion: nil)
     }
 
+    // Método para validar los campos y mostrar una alerta si hay algún campo vacío
+    func validarCampos() -> Bool {
+        if txtCod.text?.isEmpty ?? true {
+            mostrarAlerta(mensaje: "Por favor, ingrese el código.")
+            return false
+        }
+        
+        if txtNom.text?.isEmpty ?? true {
+            mostrarAlerta(mensaje: "Por favor, ingrese el nombre.")
+            return false
+        }
+        
+        if txtCat.text?.isEmpty ?? true {
+            mostrarAlerta(mensaje: "Por favor, seleccione una categoría.")
+            return false
+        }
+        
+        if txtCant.text?.isEmpty ?? true {
+            mostrarAlerta(mensaje: "Por favor, ingrese la cantidad.")
+            return false
+        }
+        
+        if txtPrecio.text?.isEmpty ?? true {
+            mostrarAlerta(mensaje: "Por favor, ingrese el precio.")
+            return false
+        }
+        
+        return true
+    }
+
+    // Método para mostrar una alerta
+    func mostrarAlerta(mensaje: String) {
+        let alerta = UIAlertController(title: "Error", message: mensaje, preferredStyle: .alert)
+        alerta.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alerta, animated: true, completion: nil)
+    }
+
     @IBAction func btnGuardar(_ sender: Any) {
+        // Validar los campos antes de guardar
+        guard validarCampos() else { return }
+        
         let contexto = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         // Crear o actualizar el producto
