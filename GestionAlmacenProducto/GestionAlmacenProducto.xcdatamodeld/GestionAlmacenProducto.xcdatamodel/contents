@@ -3,14 +3,15 @@
     <entity name="Categoria" representedClassName="Categoria" syncable="YES" codeGenerationType="class">
         <attribute name="descripcion" optional="YES" attributeType="String"/>
         <attribute name="nombre" optional="YES" attributeType="String"/>
+        <relationship name="productos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Producto" inverseName="categorias" inverseEntity="Producto"/>
     </entity>
     <entity name="Chunny" representedClassName="Chunny" syncable="YES" codeGenerationType="class"/>
     <entity name="Producto" representedClassName="Producto" syncable="YES" codeGenerationType="class">
         <attribute name="cantidad" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="categoria" optional="YES" attributeType="String"/>
         <attribute name="codigo" optional="YES" attributeType="String"/>
         <attribute name="imageData" optional="YES" attributeType="Binary"/>
         <attribute name="nombre" optional="YES" attributeType="String"/>
         <attribute name="precio" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="categorias" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categoria" inverseName="productos" inverseEntity="Categoria"/>
     </entity>
 </model>

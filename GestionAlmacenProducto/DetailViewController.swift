@@ -23,7 +23,9 @@ class DetailViewController: UIViewController {
         if let producto = producto {
             txtCodigo.text = producto.codigo ?? "Sin Código"
             txtNombre.text = producto.nombre ?? "Sin Nombre"
-            txtCategoria.text = producto.categoria ?? "Sin Categoria"
+            txtCategoria.text = producto.categorias?.nombre
+            
+            ?? "Sin Categoria"
             txtCantidad.text = String(producto.cantidad)
             txtPrecio.text = String(producto.precio)
         }
