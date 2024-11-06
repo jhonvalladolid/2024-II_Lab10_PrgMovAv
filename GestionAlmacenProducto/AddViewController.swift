@@ -146,20 +146,40 @@ class AddViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         present(alerta, animated: true, completion: nil)
     }
 
+    // Método para confirmar la edición
+    func confirmarEdicion(completion: @escaping () -> Void) {
+        let alerta = UIAlertController(title: "Confirmación", message: "¿Estás seguro de que deseas guardar los cambios en este producto?", preferredStyle: .alert)
+        alerta.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alerta.addAction(UIAlertAction(title: "Guardar", style: .default, handler: { _ in
+            completion()
+        }))
+        present(alerta, animated: true, completion: nil)
+    }
+
     @IBAction func btnGuardar(_ sender: Any) {
         // Validar los campos antes de guardar
         guard validarCampos() else { return }
         
+        // Si el producto está en modo de edición, mostrar la confirmación
+        if productoAEditar != nil {
+            confirmarEdicion {
+                self.guardarProducto()
+            }
+        } else {
+            guardarProducto()
+        }
+    }
+    
+    // Método para guardar el producto
+    func guardarProducto() {
         let contexto = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        // Crear o actualizar el producto
         let producto = productoAEditar ?? Producto(context: contexto)
         
         producto.codigo = txtCod.text
         producto.nombre = txtNom.text
         producto.cantidad = Int16(txtCant.text ?? "0") ?? 0
         producto.precio = Double(txtPrecio.text ?? "0") ?? 0.0
-        producto.categorias = categoriaSeleccionada // Asignar la categoría seleccionada al producto
+        producto.categorias = categoriaSeleccionada
 
         if let imagen = imagenSeleccionada {
             producto.imageData = imagen.jpegData(compressionQuality: 0.8)
