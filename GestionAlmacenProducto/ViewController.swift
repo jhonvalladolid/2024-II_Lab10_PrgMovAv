@@ -61,23 +61,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "ProductoCell")
         let producto = productosFiltrados[indexPath.row]
 
-        // Configuración del texto principal y subtítulo para la celda
         cell.textLabel?.text = producto.nombre ?? "Sin Nombre"
         cell.detailTextLabel?.text = producto.categorias?.nombre ?? "Sin Categoría"
 
-        // Cargar la imagen desde imageData en Core Data
         if let imageData = producto.imageData {
             cell.imageView?.image = UIImage(data: imageData)
         } else {
             cell.imageView?.image = UIImage(named: "placeholder")
         }
 
-        // Ajuste del tamaño de la imagen
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.layer.cornerRadius = 8
         cell.imageView?.clipsToBounds = true
 
-        // Redimensionar la imagen a 50x50
         let itemSize = CGSize(width: 50, height: 50)
         UIGraphicsBeginImageContextWithOptions(itemSize, false, UIScreen.main.scale)
         let imageRect = CGRect(origin: .zero, size: itemSize)
@@ -97,7 +93,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         editarAccion.backgroundColor = UIColor.blue
 
         let eliminarAccion = UIContextualAction(style: .destructive, title: "Eliminar") { (action, view, completionHandler) in
-            self.eliminarProducto(at: indexPath)
+            self.confirmarEliminacionProducto(at: indexPath)
             completionHandler(true)
         }
 
@@ -105,9 +101,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return configuracion
     }
 
+    func confirmarEliminacionProducto(at indexPath: IndexPath) {
+        let alert = UIAlertController(title: "Eliminar Producto", message: "¿Estás seguro de que deseas eliminar este producto?", preferredStyle: .alert)
+        let cancelarAccion = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        let confirmarAccion = UIAlertAction(title: "Eliminar", style: .destructive) { _ in
+            self.eliminarProducto(at: indexPath)
+        }
+        alert.addAction(cancelarAccion)
+        alert.addAction(confirmarAccion)
+        present(alert, animated: true, completion: nil)
+    }
+
     func eliminarProducto(at indexPath: IndexPath) {
         let contexto = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
         let productoAEliminar = productosFiltrados[indexPath.row]
         contexto.delete(productoAEliminar)
 
