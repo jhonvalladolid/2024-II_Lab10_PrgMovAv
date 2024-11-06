@@ -100,7 +100,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="SMg-rD-o9l"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72811111989999999" green="1" blue="0.97274272439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="1pU-yO-Fus"/>
                 </viewController>
@@ -122,7 +122,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CTv-UL-tAm"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72811111989999999" green="1" blue="0.97274272439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="CTv-UL-tAm" firstAttribute="trailing" secondItem="0sL-MD-NsZ" secondAttribute="trailing" id="6vc-NT-uZn"/>
                             <constraint firstItem="0sL-MD-NsZ" firstAttribute="leading" secondItem="CTv-UL-tAm" secondAttribute="leading" id="Oif-Em-6wS"/>
@@ -258,7 +258,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R82-fw-aw4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72811111989999999" green="1" blue="0.97274272439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="HUV-3X-Brw" firstAttribute="centerX" secondItem="VzN-tD-j9I" secondAttribute="centerX" id="1aP-wr-Cdy"/>
                             <constraint firstItem="Z8v-xu-5BN" firstAttribute="centerX" secondItem="4aj-Qy-nYe" secondAttribute="centerX" id="H5p-m1-Zem"/>
@@ -338,7 +338,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P46-KJ-7OH"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72811111989999999" green="1" blue="0.97274272439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="wxi-N5-XTl" firstAttribute="leading" secondItem="P46-KJ-7OH" secondAttribute="leading" id="02U-4Z-qbx"/>
                             <constraint firstItem="wxi-N5-XTl" firstAttribute="top" secondItem="t4y-Cn-RFP" secondAttribute="bottom" id="8gO-Ok-Mrx"/>
@@ -466,7 +466,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aNy-U2-dzg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72811111989999999" green="1" blue="0.97274272439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ash-Hg-AlN"/>
                     <connections>
@@ -546,7 +546,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wrA-Y6-AL0"/>
-                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72811111989096289" green="1" blue="0.97274272436182119" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="kVl-2S-fIm">
                         <barButtonItem key="backBarButtonItem" title="Volver" id="0Mi-sO-tS9"/>
@@ -633,7 +633,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Gyk-iv-R9u"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72811111989999999" green="1" blue="0.97274272439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Atras" id="lta-pS-nOU"/>
                     <connections>
@@ -720,7 +720,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="18Y-wO-71S"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.72811111989999999" green="1" blue="0.97274272439999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="18Y-wO-71S" firstAttribute="bottom" secondItem="akc-uV-E5E" secondAttribute="bottom" id="IJC-k3-KtT"/>
                             <constraint firstItem="18Y-wO-71S" firstAttribute="trailing" secondItem="T9r-VO-w3u" secondAttribute="trailing" id="Ifa-t0-AX1"/>
@@ -749,9 +749,6 @@
         <image name="category.png" width="512" height="512"/>
         <image name="imgFoto.png" width="28.912940979003906" height="28.912940979003906"/>
         <image name="report.png" width="512" height="512"/>
-        <systemColor name="secondarySystemGroupedBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
